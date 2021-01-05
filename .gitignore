@@ -1,0 +1,15 @@
+*__pycache__
+*.csv
+*.ipynb_checkpoints*
+*.xlsx
+*.xls
+*.zip
+node_modules
+*db.sqlite*
+*eslintcache
+**static/
+**tmp/
+**logs/
+**db/
+*.DS_Store
+**mydatabase
