@@ -11,14 +11,14 @@ db = MongoClient(mongo_uri)['test_db']
 collection = db.test_collection
 
 posts = db.posts
-data = []
+
 
 
 class TodoListView(APIView):
 
     def get(self, request):
        
-        global data
+        data = []
         data = list(data)
         global posts
         todo = posts.find()
@@ -27,14 +27,8 @@ class TodoListView(APIView):
             data.append({'title':post["title"]})
              # Implement this method - return all todo items from db instance above.
         #data = JsonResponse(data,safe=False)
-        seen = set()
-        new_l = []
-        for d in data:
-            t = tuple(d.items())
-            if t not in seen:
-                seen.add(t)
-                new_l.append(d)
-        return Response(new_l, status=status.HTTP_200_OK)
+        
+        return Response(data, status=status.HTTP_200_OK)
         
     def post(self, request):
         global posts
